@@ -20,6 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",
+    "chart.js": "^4.3.2",
     "normalize-scss": "^7.0.1",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
