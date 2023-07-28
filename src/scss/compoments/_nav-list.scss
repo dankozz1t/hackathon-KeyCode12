@@ -1,0 +1,19 @@
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+
+  @include media(tablet-only) {
+    gap: 30px;
+  }
+}
+
+.nav-list__item:hover {
+  color: var(--pressed-state-cl);
+  transition: 0.3s;
+}
+
+.nav-list__item:focus {
+  color: var(--pressed-state-cl);
+  transition: 0.3s;
+}

@@ -1,0 +1,24 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 100%;
+
+  @include media(mobile-only) {
+    max-width: $mobile;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @include media(tablet-only) {
+    width: $tablet;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include media(desktop) {
+    width: $desktop;
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+}

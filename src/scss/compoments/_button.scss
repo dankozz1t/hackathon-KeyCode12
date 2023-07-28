@@ -1,0 +1,50 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+
+  padding: 15px 30px;
+  border-radius: 50px;
+
+  border: 1px solid var(--accent-cl);
+  outline: none;
+}
+
+.button--primary {
+  background-color: transparent;
+  color: var(--accent-cl);
+
+  border-color: var(--accent-cl);
+
+  transition:
+    color 250ms ease,
+    background-color 250ms ease,
+    border-color 250ms ease;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-cl);
+    background-color: var(--accent-cl);
+    border-color: var(--accent-cl);
+  }
+}
+
+.button--secondary {
+  color: var(--primary-cl);
+  background-color: var(--accent-cl);
+  border-color: var(--accent-cl);
+
+  transition:
+    color 250ms ease,
+    background-color 250ms ease,
+    border-color 250ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: var(--accent-cl);
+
+    border-color: var(--accent-cl);
+  }
+}

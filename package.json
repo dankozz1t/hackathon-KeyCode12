@@ -1,0 +1,26 @@
+{
+  "name": "js-vanila-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-git": "vite build --base=/js-vanila-template/",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+  },
+  "devDependencies": {
+    "glob": "^8.1.0",
+    "prettier": "^3.0.0",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "vite": "^4.0.5"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "normalize-scss": "^7.0.1",
+    "vite-plugin-full-reload": "^1.0.5",
+    "vite-plugin-html-inject": "^1.0.1"
+  }
+}
