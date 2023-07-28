@@ -1,12 +1,12 @@
 {
-  "name": "js-vanila-template",
+  "name": "hackathon-KeyCode12",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build-git": "vite build --base=/js-vanila-template/",
+    "build-git": "vite build --base=/hackathon-KeyCode12/",
     "preview": "vite preview",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
