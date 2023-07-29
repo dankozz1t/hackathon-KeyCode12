@@ -7,44 +7,46 @@
   padding: 15px 30px;
   border-radius: 50px;
 
-  border: 1px solid var(--accent-cl);
+  font-family: var(--secondary-font);
+
+  border: 1px solid var(--french-sky-blue);
   outline: none;
 }
 
 .button--primary {
   background-color: transparent;
-  color: var(--accent-cl);
+  color: var(--main-text-cl);
 
-  border-color: var(--accent-cl);
+  border-color: var(--main-text-cl);
 
   transition:
-    color 250ms ease,
-    background-color 250ms ease,
-    border-color 250ms ease;
+    color var(--transition-time) var(--transition-cubic),
+    border-color var(--transition-time) var(--transition-cubic),
+    background-color var(--transition-time) var(--transition-cubic);
 
   &:hover,
   &:focus {
-    color: var(--primary-cl);
-    background-color: var(--accent-cl);
-    border-color: var(--accent-cl);
+    color: var(--main-text-cl);
+    background-color: var(--french-sky-blue);
+    border-color: var(--french-sky-blue);
   }
 }
 
 .button--secondary {
-  color: var(--primary-cl);
-  background-color: var(--accent-cl);
-  border-color: var(--accent-cl);
+  color: var(--main-text-cl);
+  background-color: var(--french-sky-blue);
+  border-color: var(--french-sky-blue);
 
   transition:
-    color 250ms ease,
-    background-color 250ms ease,
-    border-color 250ms ease;
+    color var(--transition-time) var(--transition-cubic),
+    border-color var(--transition-time) var(--transition-cubic),
+    background-color var(--transition-time) var(--transition-cubic);
 
   &:hover,
   &:focus {
     background-color: transparent;
-    color: var(--accent-cl);
+    color: var(--french-sky-blue);
 
-    border-color: var(--accent-cl);
+    border-color: var(--french-sky-blue);
   }
 }
