@@ -9,15 +9,15 @@
 
   font-family: var(--secondary-font);
 
-  border: 1px solid var(--french-sky-blu);
+  border: 1px solid var(--french-sky-blue);
   outline: none;
 }
 
 .button--primary {
   background-color: transparent;
-  color: var(--french-sky-blu);
+  color: var(--main-text-cl);
 
-  border-color: var(--french-sky-blu);
+  border-color: var(--main-text-cl);
 
   transition:
     color var(--transition-time) var(--transition-cubic),
@@ -26,9 +26,9 @@
 
   &:hover,
   &:focus {
-    color: var(--french-sky-blu);
-    background-color: var(--crayola);
-    border-color: var(--crayola);
+    color: var(--main-text-cl);
+    background-color: var(--french-sky-blue);
+    border-color: var(--french-sky-blue);
   }
 }
 

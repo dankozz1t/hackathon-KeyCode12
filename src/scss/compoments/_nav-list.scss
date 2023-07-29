@@ -3,7 +3,7 @@
   flex-direction: row;
   gap: 60px;
 
-  color: var(--french-sky-blue);
+  color: var(--main-text-cl);
 
   @include media(tablet-only) {
     gap: 30px;
@@ -13,7 +13,7 @@
 .nav-list__item {
   &:hover,
   &:focus {
-    color: var(--crayola);
+    color: var(--french-sky-blue);
     transition: color var(--transition-time) var(--transition-cubic);
   }
 }
