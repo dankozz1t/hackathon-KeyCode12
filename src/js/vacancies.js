@@ -33,7 +33,7 @@ function generateVacancyHTML(vacancy) {
         <p class="vacancy__description">${vacancy.note}</p>
 
         <div class="vacancy__edit">
-          <button data-open-edit-modal class="vacancy__button" type="button">
+          <button data-modal-target="ModalEdit" data-open-edit-modal class="vacancy__button" type="button">
             Edit
           </button>
         </div>
