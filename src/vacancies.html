@@ -11,9 +11,26 @@
     <load ="partials/header.html" />
 
     <main>
-      <section>
+      <section class="vacancies">
         <div class="container">
-          <h1>Vacancies page</h1>
+          <div class="vacancies__header">
+            <h2 class="vacancies__title">{COUNT} Vacancies</h2>
+            <button
+              data-add-vacancy
+              type="button"
+              class="button button--secondary vacancies__add-vacancy"
+            >
+              Add vacancy
+            </button>
+          </div>
+
+          <div class="vacancies__container">
+            <ul class="vacancies__list">
+              <li>
+                <load ="components/vacancy.html" />
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </main>
