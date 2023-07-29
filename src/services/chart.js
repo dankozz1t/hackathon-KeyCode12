@@ -11,8 +11,6 @@ const borderCharColor = getComputedStyle(
   document.documentElement
 ).getPropertyValue('--brandeis-blue');
 
-console.log(charColor);
-
 const currentYear = 2023;
 
 const getData = async () => {
@@ -37,7 +35,6 @@ const filteredMonthVacancy = (data, month) => {
 
 const filteredDayVacancy = (data, day) => {
   return data.filter(el => {
-    console.log(new Date(el.date));
     const d = new Date(el.date);
     const dateWithoutTime1 = new Date(
       day.getFullYear(),
@@ -100,7 +97,6 @@ const parseMonth = month => {
 };
 
 const parseDay = data => {
-  console.log(data);
   const date = new Date(data);
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -114,8 +110,6 @@ const btnDayEl = document.getElementById('foo');
 const btnMonthEl = document.getElementById('month');
 const btnYearEl = document.getElementById('button--year');
 const canvasEl = document.getElementById('chart');
-
-console.log(btnMonthEl);
 
 btnDayEl.addEventListener('click', () => {
   const currentDate = datepicker.getDate();
@@ -233,7 +227,6 @@ const chartMonth = async function (data) {
   data.forEach(item => {
     const day = Date.parse(item.date);
     const parsedDay = parseDay(day);
-    console.log(parsedDay);
     if (chartData[parsedDay]) {
       chartData[parsedDay] += 1;
     } else {
