@@ -1,5 +1,6 @@
 @import 'normalize-scss';
 @include normalize();
+@import 'vanillajs-datepicker/sass/datepicker';
 
 @import './utils/mixin-font-size';
 @import './utils/mixin-media';
@@ -18,3 +19,4 @@
 @import './compoments/dashboard-nav-list';
 
 @import './compoments/auth-page';
+@import './compoments/dashboard-page';

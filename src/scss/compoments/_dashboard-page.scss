@@ -1,0 +1,36 @@
+.dashboard-section {
+  padding-top: 60px;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-row-gap: 30px;
+  grid-column-gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.dashboard-items {
+  background-color: var(--bright-gray);
+  padding: 20px;
+  border-radius: 10px;
+
+  &:nth-child(4) {
+    grid-column: span 2;
+  }
+
+  &:nth-child(3),
+  &:nth-child(6),
+  &:nth-child(9) {
+    grid-row: span 2;
+  }
+}
+
+.datepicker-picker,
+.datepicker-header .datepicker-controls .button {
+  background-color: transparent;
+}
+
+.days-of-week {
+  color: var(--french-sky-blue);
+}

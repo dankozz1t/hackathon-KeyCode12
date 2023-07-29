@@ -27,3 +27,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 import '@/services/chart.js';
+import '@/services/datePicker.js';

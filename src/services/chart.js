@@ -1,9 +1,10 @@
 import Chart from 'chart.js/auto';
 import { vacanciesAPI } from './vacanciesAPI';
+import { datepicker } from './datePicker';
 // Chart.defaults.font.size = 24;
-const date1 = new Date('2023-07-29');
+const date1 = new Date('2023-07-2');
 const date2 = new Date('2023-07-2');
-const date3 = new Date('2023-07-29');
+const date3 = new Date('2023-07-12');
 const currentYear = 2023;
 
 const getData = async () => {
@@ -59,7 +60,17 @@ const filteredMonthVacancy = (data, month) => {
 
 const filteredDayVacancy = (data, day) => {
   return data.filter(el => {
-    return Date.parse(el.date) === Date.parse(day);
+    const dateWithoutTime1 = new Date(
+      day.getFullYear(),
+      day.getMonth(),
+      day.getDate()
+    );
+    const dateWithoutTime2 = new Date(
+      el.date.getFullYear(),
+      el.date.getMonth(),
+      el.date.getDate()
+    );
+    return dateWithoutTime1.getTime() === dateWithoutTime2.getTime();
   });
 };
 
@@ -119,19 +130,22 @@ const parseDay = data => {
   return formattedDate;
 };
 
-const btnDayEl = document.getElementById('button--day');
+const btnDayEl = document.getElementById('foo');
 const btnMonthEl = document.getElementById('button--month');
 const btnYearEl = document.getElementById('button--year');
 const canvasEl = document.getElementById('chart');
 
-btnDayEl.addEventListener('click', () => buttonClick('day'));
-btnMonthEl.addEventListener('click', () => buttonClick('month'));
-btnYearEl.addEventListener('click', () => buttonClick('year'));
+btnDayEl.addEventListener('click', () => {
+  const currentDate = datepicker.getDate();
+  buttonClick('day', currentDate);
+});
+// btnMonthEl.addEventListener('click', () => buttonClick('month'));
+// btnYearEl.addEventListener('click', () => buttonClick('year'));
 
-const buttonClick = period => {
+const buttonClick = (period, currentDate) => {
   switch (period) {
     case 'day':
-      chartDay(filteredDayVacancy(allData, '2023-07-29'));
+      chartDay(filteredDayVacancy(allData, currentDate));
       break;
 
     case 'month':
