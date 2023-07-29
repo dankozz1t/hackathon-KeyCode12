@@ -1,0 +1,31 @@
+.vacancies {
+  padding: 60px 170px;
+}
+
+.vacancies__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 35px;
+}
+
+.vacancies__title {
+  min-width: max-content;
+
+  font-family: var(--secondary-font);
+  font-size: 32px;
+  font-weight: 700;
+
+  color: var(--raisin-black);
+}
+
+.vacancies__add-vacancy {
+  max-width: 200px;
+}
+
+.vacancies__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

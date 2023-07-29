@@ -1,14 +1,16 @@
 import '@/scss/index.scss';
 
 import {
-  onAuthFormSumbit,
+  onAuthFormSubmit,
   onShowPasswordClick,
   onLogoutClick,
 } from '@/js/auth.js';
 
+import { onOpenVacancy } from '@/js/vacancies.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('[data-auth-submit]');
-  form?.addEventListener('submit', onAuthFormSumbit);
+  form?.addEventListener('submit', onAuthFormSubmit);
 
   const showPasswordButton = document.querySelector('[data-show-password]');
   showPasswordButton?.addEventListener('click', onShowPasswordClick);
