@@ -10,7 +10,13 @@ const createVacancy = async vacancy => {
   return data;
 };
 
+const editVacancy = async vacancy => {
+  const { data } = await axiosInstance.put('/vacancy', vacancy);
+  return data;
+};
+
 export const vacanciesAPI = {
   getVacancies,
   createVacancy,
+  editVacancy,
 };
