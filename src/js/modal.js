@@ -1,14 +1,32 @@
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-btn.onclick = function() {
-    modal.style.display = "block";
+function openModal(modal) {
+  modal.style.display = "block";
 }
-span.onclick = function() {
-    modal.style.display = "none";
+
+function closeModal(modal) {
+  modal.style.display = "none";
 }
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+
+function handleOutsideClick(event) {
+  const modal = event.target.closest("[data-modal]");
+  if (modal && event.target === modal) {
+    closeModal(modal);
+  }
 }
+
+const buttons = document.querySelectorAll("[data-modal-target]");
+buttons.forEach(button => {
+  const targetModalId = button.dataset.modalTarget;
+  const targetModal = document.getElementById(targetModalId);
+
+  button.addEventListener("click", () => openModal(targetModal));
+});
+
+const modals = document.querySelectorAll("[data-modal]");
+modals.forEach(modal => {
+  const closeBtn = modal.querySelector(".close");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => closeModal(modal));
+  }
+});
+
+window.addEventListener("click", handleOutsideClick);
