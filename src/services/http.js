@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'https://nameURL/api',
+  baseURL: 'https://hackathon-keycode12.onrender.com/api',
 });
 
 export const token = {

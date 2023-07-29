@@ -1,21 +1,28 @@
-$mobile: 290px; //15 paddings
+$mobile: 290px;
 $tablet: 768px;
 $desktop: 1280px;
 
 :root {
   // Fonts
-  --main-font: 'Montserrat', sans-serif;
-  --secondary-font: 'FixelDisplay', sans-serif;
+  --main-font: 'Livvic', sans-serif;
+  --secondary-font: 'Lato', sans-serif;
 
-  // Colors
-  --primary-cl: #212121;
-  --accent-cl: #ecd8bd;
+  --main-bg-cl: #ffffff;
+  --main-text-cl: #ffffff;
 
-  --pressed-state-cl: #e5b471;
+  //Grey scale
+  --bright-gray: #ebf0f6;
+  --platinum: #dde1ea;
+  --cool-grey: #8a929f;
+  --independence: #4a5565;
+  --raisin-black: #232323;
 
-  --text-cl: #ffffff;
-  --add-text-cl: #9e9e9e;
+  //Brand colors
+  --french-sky-blue: #6ea3ff;
+  --brandeis-blue: #005efe;
+  --crayola: #0452db;
 
-  --icon-cl: #b58224;
-  --arrow-up-cl: #ffd28d;
+  // Transition
+  --transition-cubic: cubic-bezier(0.1, 0.7, 1, 0.1);
+  --transition-time: 250ms;
 }

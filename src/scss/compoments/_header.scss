@@ -1,5 +1,5 @@
 .header {
-  background-color: var(--primary-cl);
+  background-color: var(--raisin-black);
 
   padding: 15px;
   @include media(mobile-only) {
@@ -23,21 +23,18 @@
   @include media(tablet) {
     display: flex;
     flex-direction: row;
-    color: var(--text-cl);
     justify-content: space-between;
     align-items: center;
+
+    color: var(--raisin-black);
   }
 }
 
 .header__link {
-  &:hover {
-    color: var(--pressed-state-cl);
-    transition: 0.3s;
-  }
-
+  &:hover,
   &:focus {
-    color: var(--pressed-state-cl);
-    transition: 0.3s;
+    color: var(--french-sky-blue);
+    transition: color var(--transition-time) var(--transition-cubic);
   }
 }
 
