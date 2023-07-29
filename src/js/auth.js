@@ -20,6 +20,10 @@ export function onShowPasswordClick() {
   }
 }
 
-export function onLogoutClick() {
-  window.location.href = 'index.html';
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('[data-auth-submit]');
+  form?.addEventListener('submit', onAuthFormSubmit);
+
+  const showPasswordButton = document.querySelector('[data-show-password]');
+  showPasswordButton?.addEventListener('click', onShowPasswordClick);
+});
