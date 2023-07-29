@@ -1,21 +1,10 @@
 import '@/scss/index.scss';
 
-import {
-  onAuthFormSumbit,
-  onShowPasswordClick,
-  onLogoutClick,
-} from '@/js/auth.js';
+export function onLogoutClick() {
+  window.location.href = 'index.html';
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('[data-auth-submit]');
-  form?.addEventListener('submit', onAuthFormSumbit);
-
-  const showPasswordButton = document.querySelector('[data-show-password]');
-  showPasswordButton?.addEventListener('click', onShowPasswordClick);
-
-  const logout = document.querySelector('[data-logout]');
-  logout?.addEventListener('click', onLogoutClick);
-
   if (window.location.href.includes('vacancies')) {
     const vacanciesLink = document.querySelector('[data-vacancies-link]');
     vacanciesLink?.classList.add('active-link');
@@ -24,5 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.location.href.includes('dashboard')) {
     const dashboardLink = document.querySelector('[data-dashboard-link]');
     dashboardLink?.classList.add('active-link');
+  }
+
+  const logout = document.querySelector('[data-logout]');
+  logout?.addEventListener('click', onLogoutClick);
+
+  const userEmail = document.querySelector('[data-user-email]');
+  if (userEmail) {
+    userEmail.textContent =
+      localStorage.getItem('userEmail') || 'testemail@gmail.com';
   }
 });

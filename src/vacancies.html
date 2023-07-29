@@ -11,14 +11,30 @@
     <load ="partials/header.html" />
     <load ="partials/modal-edit-vacancy.html" />
     <main>
-      <section>
+      <section class="vacancies">
         <div class="container">
-          <h1>Vacancies page</h1>
+          <div class="vacancies__header">
+            <h2 data-vacancies-title class="vacancies__title">
+              {COUNT} Vacancies
+            </h2>
+            <button
+              data-add-vacancy
+              type="button"
+              class="button button--secondary vacancies__add-vacancy"
+            >
+              Add vacancy
+            </button>
+          </div>
+
+          <div class="vacancies__container">
+            <ul class="vacancies__list" data-vacancies-container></ul>
+          </div>
         </div>
       </section>
     </main>
 
     <script type="module" src="/main.js"></script>
     <script type="module" src="/js/modal.js"></script>
+    <script type="module" src="/js/vacancies.js"></script>
   </body>
 </html>
