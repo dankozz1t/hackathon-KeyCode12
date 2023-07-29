@@ -4,12 +4,15 @@
   align-items: center;
   gap: 18px;
 
+  width: 100%;
   padding: 15px 30px;
-  border-radius: 50px;
+  border-radius: 20px;
 
   font-family: var(--secondary-font);
+  font-size: 18px;
+  font-weight: 400;
 
-  border: 1px solid var(--french-sky-blue);
+  border: 2px solid var(--french-sky-blue);
   outline: none;
 }
 
