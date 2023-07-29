@@ -6,14 +6,22 @@
   display: grid;
   grid-row-gap: 30px;
   grid-column-gap: 30px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: auto 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+}
+
+.dashboard-title {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .dashboard-items {
   background-color: var(--bright-gray);
   padding: 20px;
   border-radius: 10px;
+  min-height: 280px;
 
   &:nth-child(4) {
     grid-column: span 2;
@@ -33,4 +41,8 @@
 
 .days-of-week {
   color: var(--french-sky-blue);
+}
+
+.datepicker-picker {
+  margin: 0 auto;
 }

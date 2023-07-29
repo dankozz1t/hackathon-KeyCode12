@@ -1,10 +1,18 @@
 import Chart from 'chart.js/auto';
 import { vacanciesAPI } from './vacanciesAPI';
 import { datepicker } from './datePicker';
-// Chart.defaults.font.size = 24;
-const date1 = new Date('2023-07-2');
-const date2 = new Date('2023-07-2');
-const date3 = new Date('2023-07-12');
+import { datepickerMonth } from './datePicker';
+import { vacancies as allData } from '../plug-data/vacancies-data';
+
+const charColor = getComputedStyle(document.documentElement).getPropertyValue(
+  '--french-sky-blue'
+);
+const borderCharColor = getComputedStyle(
+  document.documentElement
+).getPropertyValue('--brandeis-blue');
+
+console.log(charColor);
+
 const currentYear = 2023;
 
 const getData = async () => {
@@ -16,59 +24,30 @@ const getData = async () => {
   }
 };
 
-// const allData = getData();
-const allData = [
-  {
-    vacancyId: 1,
-    vacancyLink: 'https/address1',
-    companyName: 'superCompany1',
-    position: 'front1',
-    date: date1,
-    statusId: 1,
-    template: 'lorem',
-    note: 'super',
-  },
-  {
-    vacancyId: 2,
-    vacancyLink: 'https/address2',
-    companyName: 'superCompany2',
-    position: 'front2',
-    date: date2,
-    statusId: 2,
-    template: 'lorem',
-    note: 'super',
-  },
-  {
-    vacancyId: 3,
-    vacancyLink: 'https/address3',
-    companyName: 'superCompany3',
-    position: 'front3',
-    date: date3,
-    statusId: 3,
-    template: 'lorem',
-    note: 'super',
-  },
-];
-
 const filteredYearVacancy = (data, year) => {
   return data.filter(el => el.date.getFullYear() === year);
 };
 
 const filteredMonthVacancy = (data, month) => {
-  return data.filter(el => el.date.getMonth() === month);
+  return data.filter(el => {
+    const d = new Date(el.date);
+    return d.getMonth() + 1 === month;
+  });
 };
 
 const filteredDayVacancy = (data, day) => {
   return data.filter(el => {
+    console.log(new Date(el.date));
+    const d = new Date(el.date);
     const dateWithoutTime1 = new Date(
       day.getFullYear(),
       day.getMonth(),
       day.getDate()
     );
     const dateWithoutTime2 = new Date(
-      el.date.getFullYear(),
-      el.date.getMonth(),
-      el.date.getDate()
+      d.getFullYear(),
+      d.getMonth(),
+      d.getDate()
     );
     return dateWithoutTime1.getTime() === dateWithoutTime2.getTime();
   });
@@ -121,6 +100,7 @@ const parseMonth = month => {
 };
 
 const parseDay = data => {
+  console.log(data);
   const date = new Date(data);
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -131,15 +111,24 @@ const parseDay = data => {
 };
 
 const btnDayEl = document.getElementById('foo');
-const btnMonthEl = document.getElementById('button--month');
+const btnMonthEl = document.getElementById('month');
 const btnYearEl = document.getElementById('button--year');
 const canvasEl = document.getElementById('chart');
+
+console.log(btnMonthEl);
 
 btnDayEl.addEventListener('click', () => {
   const currentDate = datepicker.getDate();
   buttonClick('day', currentDate);
 });
-// btnMonthEl.addEventListener('click', () => buttonClick('month'));
+
+btnMonthEl?.addEventListener('click', () => {
+  const currentDate = datepickerMonth.getDate();
+
+  const date = currentDate.getMonth() + 1;
+  buttonClick('month', date);
+});
+
 // btnYearEl.addEventListener('click', () => buttonClick('year'));
 
 const buttonClick = (period, currentDate) => {
@@ -149,7 +138,7 @@ const buttonClick = (period, currentDate) => {
       break;
 
     case 'month':
-      chartMonth(filteredMonthVacancy(allData, 6));
+      chartMonth(filteredMonthVacancy(allData, currentDate));
       break;
 
     case 'year':
@@ -185,7 +174,7 @@ const chartYear = async function (data) {
       responsive: true,
       borderWidth: 2,
       borderRadius: 20,
-      borderColor: 'red',
+      borderColor: borderCharColor,
     },
     data: {
       labels: Object.keys(chartData),
@@ -201,10 +190,6 @@ const chartYear = async function (data) {
 };
 
 const chartDay = async function (data) {
-  console.log('chartDay', data);
-};
-
-const chartMonth = async function (data) {
   const chartData = {};
   data.forEach(item => {
     const day = Date.parse(item.date);
@@ -228,7 +213,7 @@ const chartMonth = async function (data) {
       responsive: true,
       borderWidth: 2,
       borderRadius: 20,
-      borderColor: 'red',
+      borderColor: borderCharColor,
     },
     data: {
       labels: Object.keys(chartData),
@@ -236,111 +221,50 @@ const chartMonth = async function (data) {
         {
           label: 'Number of vacancies per year',
           data: Object.values(chartData),
-          backgroundColor: '#ff6384',
+          backgroundColor: charColor,
         },
       ],
     },
   });
 };
 
-// const chart = async function (data) {
-//
+const chartMonth = async function (data) {
+  const chartData = {};
+  data.forEach(item => {
+    const day = Date.parse(item.date);
+    const parsedDay = parseDay(day);
+    console.log(parsedDay);
+    if (chartData[parsedDay]) {
+      chartData[parsedDay] += 1;
+    } else {
+      chartData[parsedDay] = 1;
+    }
+  });
 
-//   new Chart(document.getElementById('chart'), {
-//     type: 'bar',
-//     options: {
-//       responsive: true,
-//       borderWidth: 2,
-//       borderRadius: 20,
-//       borderColor: 'red',
-//     },
-//     data: {
-//       labels: year.map(row => row.date.getMonth()),
-//       datasets: [
-//         {
-//           label: 'Number of vacancies per year',
-//           data: year.map(row => row.length),
-//           backgroundColor: '#ff6384',
-//         },
-//       ],
-//     },
-//   });
-// };
+  const existingChart = Chart.getChart('chart');
+  if (existingChart) {
+    existingChart.destroy();
+  }
 
-// const allSuccess = async function () {
-//   const dataYear = [
-//     { status: 'Success', count: 2 },
-//     { status: 'Dismiss', count: 10 },
-//     { status: 'Pending', count: 30 },
-//   ];
+  new Chart(canvasEl, {
+    type: 'bar',
+    options: {
+      responsive: true,
+      borderWidth: 2,
+      borderRadius: 20,
+      borderColor: borderCharColor,
+    },
+    data: {
+      labels: Object.keys(chartData),
+      datasets: [
+        {
+          label: 'Number of vacancies in current day',
+          data: Object.values(chartData),
+          backgroundColor: charColor,
+        },
+      ],
+    },
+  });
+};
 
-//   //   const data = vacanciesAPI.getVacancies
-
-//   new Chart(document.getElementById('allSuccess'), {
-//     type: 'doughnut',
-//     data: {
-//       labels: dataYear.map(row => row.status),
-//       datasets: [
-//         {
-//           label: 'Vacancies by year 2022',
-//           data: dataYear.map(row => row.count),
-//           borderColor: '#42A2EB',
-//           backgroundColor: ['#ff6384', '#42A2EB', '#a2A2EB'],
-//           hoverOffset: 4,
-//         },
-//       ],
-
-//       options: {
-//         layout: {
-//           padding: 20,
-//         },
-//       },
-//     },
-//   });
-// };
-
-// const polarArea = async function () {
-//   const dataYear = [
-//     { status: 'Success', count: 12 },
-//     { status: 'Dismiss', count: 10 },
-//     { status: 'Pending', count: 30 },
-//   ];
-
-//   //   const data = await vacanciesAPI.getVacancies
-
-//   new Chart(document.getElementById('polarArea'), {
-//     type: 'polarArea',
-//     data: {
-//       labels: dataYear.map(row => row.status),
-//       datasets: [
-//         {
-//           label: 'Vacancies by year 2022',
-//           data: dataYear.map(row => row.count),
-//           borderColor: '#42A2EB',
-//           backgroundColor: ['#ff6384', '#42A2EB', '#a2A2EB'],
-//           hoverOffset: 4,
-//         },
-//       ],
-
-//       options: {
-//         animations: {
-//           tension: {
-//             duration: 1000,
-//             easing: 'linear',
-//             from: 1,
-//             to: 0,
-//             loop: true,
-//           },
-//         },
-//         layout: {
-//           padding: 20,
-//         },
-//         clip: { left: 5, top: false, right: -2, bottom: 0 },
-//       },
-//     },
-//   });
-// };
-
-// chart();
-// allSuccess();
-// polarArea();
+chartDay(allData);
