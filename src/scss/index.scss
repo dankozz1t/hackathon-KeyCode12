@@ -1,5 +1,6 @@
 @import 'normalize-scss';
 @include normalize();
+@import 'vanillajs-datepicker/sass/datepicker';
 
 @import './utils/mixin-font-size';
 @import './utils/mixin-media';
@@ -15,6 +16,7 @@
 @import './compoments/button';
 @import './compoments/header';
 @import './compoments/nav-list';
+@import './compoments/dashboard-nav-list';
 
 @import './compoments/modal-add-vacancy';
 @import './compoments/modal-edit-vacancy';
@@ -22,3 +24,4 @@
 @import './compoments/auth-page';
 @import './compoments/vacancies-page';
 @import './compoments/vacancy';
+@import './compoments/dashboard-page';
