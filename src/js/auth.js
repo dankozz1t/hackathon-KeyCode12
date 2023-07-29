@@ -19,3 +19,7 @@ export function onShowPasswordClick() {
     showPasswordButton.textContent = 'Show password';
   }
 }
+
+export function onLogoutClick() {
+  window.location.href = 'index.html';
+}

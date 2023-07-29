@@ -1,19 +1,19 @@
 .nav-list {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 60px;
 
   color: var(--main-text-cl);
-
-  @include media(tablet-only) {
-    gap: 30px;
-  }
 }
 
 .nav-list__item {
+  color: var(--independence);
+
+  transition: color var(--transition-time) var(--transition-cubic);
+
   &:hover,
   &:focus {
-    color: var(--french-sky-blue);
-    transition: color var(--transition-time) var(--transition-cubic);
+    color: var(--crayola);
   }
 }
