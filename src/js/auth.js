@@ -1,6 +1,6 @@
 // import { loginUser, registerUser } from '@/services/authApi.js';
 
-export function onAuthFormSumbit(event) {
+export function onAuthFormSubmit(event) {
   event.preventDefault();
 
   console.log('event:', event.target);
