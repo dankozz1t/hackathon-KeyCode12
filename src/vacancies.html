@@ -14,7 +14,9 @@
       <section class="vacancies">
         <div class="container">
           <div class="vacancies__header">
-            <h2 class="vacancies__title">{COUNT} Vacancies</h2>
+            <h2 data-vacancies-title class="vacancies__title">
+              {COUNT} Vacancies
+            </h2>
             <button
               data-add-vacancy
               type="button"
@@ -25,16 +27,13 @@
           </div>
 
           <div class="vacancies__container">
-            <ul class="vacancies__list">
-              <li>
-                <load ="components/vacancy.html" />
-              </li>
-            </ul>
+            <ul class="vacancies__list" data-vacancies-container></ul>
           </div>
         </div>
       </section>
     </main>
 
     <script type="module" src="/main.js"></script>
+    <script type="module" src="/js/vacancies.js"></script>
   </body>
 </html>
