@@ -24,3 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.getItem('userEmail') || 'testemail@gmail.com';
   }
 });
+import '@/services/chart.js';
+import '@/services/datePicker.js';

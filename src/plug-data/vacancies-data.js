@@ -11,7 +11,7 @@ export const vacancies = [
   },
   {
     status: 'sent',
-    date: '29.07.2023',
+    date: '07.29.2023',
     company: 'SoftServe',
     position: 'Middle C/C++ Engineer',
     link: 'https://djinni.co/jobs/573817-middle-c-c-engineer/',
@@ -20,7 +20,7 @@ export const vacancies = [
   },
   {
     status: 'offer',
-    date: '25.07.2023',
+    date: '07.25.2023',
     company: 'DataArt',
     position:
       'FullStack (.NET+React) Developer, Medical Appointment Scheduling Service',
@@ -31,7 +31,7 @@ export const vacancies = [
   },
   {
     status: 'sent',
-    date: '25.07.2023',
+    date: '07.25.2023',
     company: 'Gravity',
     position: 'Junior Front End (Markup) Developer',
     link: 'https://djinni.co/jobs/582663-junior-front-end-markup-developer/',
@@ -41,7 +41,7 @@ export const vacancies = [
   },
   {
     status: 'sent',
-    date: '26.07.2023',
+    date: '07.26.2023',
     company: 'Pozhduma',
     position: 'Junior React native developer',
     link: 'https://djinni.co/jobs/582840-junior-react-native-developer/',

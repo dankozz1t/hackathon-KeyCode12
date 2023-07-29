@@ -11,10 +11,29 @@
     <load ="partials/header.html" />
 
     <main>
-      <section>
-        <div class="container">
-          <h1>Dashboard page</h1>
-          <img class="animation--heartbeat" src="img/javascript.svg" alt="js" />
+      <section class="dashboard-section">
+        <div class="container dashboard-container">
+          <div class="dashboard-items" id="foo"></div>
+          <div class="dashboard-items">
+            <h2 class="dashboard-title">Choose period:</h2>
+            <select id="dateSelect">
+              <option value="month" selected>Month</option>
+              <option value="year">Year</option>
+            </select>
+            <h2 class="dashboard-title">Choose date:</h2>
+            <div id="month"></div>
+          </div>
+          <div class="dashboard-items">Text-dashbord</div>
+          <div class="dashboard-items">
+            <canvas id="chart">Choose date</canvas>
+          </div>
+          <div class="dashboard-items">circle</div>
+
+          <!-- <load ="components/dashboard-nav-list.html" />
+
+          <div>
+            <div style="width: 800px"><canvas id="chart"></canvas></div>
+          </div> -->
         </div>
       </section>
     </main>
