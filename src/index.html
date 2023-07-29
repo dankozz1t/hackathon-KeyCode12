@@ -4,21 +4,68 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KeyCode12</title>
+    <title>Boosty</title>
   </head>
 
   <body>
     <main>
-      <section>
-        <div class="container">
-          <h1>Login page</h1>
-          <a
-            style="width: 150px"
-            href="dashboard.html"
-            class="button button--secondary"
-          >
-            login
-          </a>
+      <section class="auth">
+        <div class="auth__left">
+          <div class="auth__left-container">
+            <img class="mt-20" src="./img/logo.svg" alt="icon boosty" />
+          </div>
+        </div>
+        <div class="auth__right">
+          <div class="container">
+            <form class="auth__form" action="onAuthFormSumbit" data-auth-submit>
+              <img
+                class="mb-20"
+                src="img/auth-right-icon.png"
+                alt="man thinks"
+              />
+
+              <h1 class="auth__title mb-20">Welcome to Boosty!</h1>
+              <h2 class="auth__tagline">
+                Create your success by recording your interviews
+              </h2>
+
+              <input
+                data-email
+                class="input mb-20"
+                type="text"
+                placeholder="Email"
+              />
+              <input
+                data-password
+                class="input mb-20"
+                type="password"
+                placeholder="Password"
+              />
+              <button
+                data-show-password
+                type="button"
+                class="auth__show-password"
+              >
+                Show password
+              </button>
+
+              <button
+                data-login
+                type="submit"
+                class="button button--secondary mb-20"
+              >
+                <a href="dashboard.html"> login </a>
+              </button>
+
+              <button
+                data-register
+                type="submit"
+                class="button button--secondary"
+              >
+                <a href="dashboard.html"> Register </a>
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </main>
