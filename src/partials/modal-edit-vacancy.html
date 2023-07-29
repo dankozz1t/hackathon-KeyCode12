@@ -1,0 +1,24 @@
+<button id="myBtn">Edit</button>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Add vacancy</h2>
+    <p>To add a new vacancy, please fill in the fields below.</p>
+    <form>
+      <select class="input modal-input modal-select" name="input modal-input" type="text" placeholder="Vacancy status" />
+      <option value="sent">Sent</option>
+      <option value="pending">Pending</option>
+      <option value="rejected">Rejected</option>
+      <option value="offer">Offer</option>
+    </select>
+      <input class="input modal-input" type="date" placeholder="Date" />
+      <input class="input modal-input" type="text" placeholder="Company name" />
+      <input class="input modal-input" type="text" placeholder="Position" />
+      <input class="input modal-input" type="url" placeholder="Vacancy link" />
+      <textarea class="input modal-input modal-textarea" placeholder="Template"></textarea>
+      <textarea class="input modal-input modal-textarea" placeholder="Note"></textarea>
+      <button class="modal-btn" type="submit">Confirm</button>
+    </form>
+  </div>
+</div>
