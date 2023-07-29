@@ -4,6 +4,7 @@ export function onAuthFormSumbit(event) {
   event.preventDefault();
 
   console.log('event:', event.target);
+  window.location.href = 'dashboard.html';
 }
 
 export function onShowPasswordClick() {
@@ -17,4 +18,8 @@ export function onShowPasswordClick() {
     passwordInput.type = 'password';
     showPasswordButton.textContent = 'Show password';
   }
+}
+
+export function onLogoutClick() {
+  window.location.href = 'index.html';
 }
