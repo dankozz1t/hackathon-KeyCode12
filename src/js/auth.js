@@ -4,6 +4,15 @@ export function onAuthFormSubmit(event) {
   event.preventDefault();
 
   console.log('event:', event.target);
+
+  const emailInput = event.target.querySelector('[data-email]');
+  const passwordInput = event.target.querySelector('[data-password]');
+
+  const emailValue = emailInput.value;
+  const passwordValue = passwordInput.value;
+
+  localStorage.setItem('userEmail', emailValue);
+
   window.location.href = 'dashboard.html';
 }
 

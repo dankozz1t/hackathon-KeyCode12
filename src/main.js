@@ -17,4 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const logout = document.querySelector('[data-logout]');
   logout?.addEventListener('click', onLogoutClick);
+
+  const userEmail = document.querySelector('[data-user-email]');
+  if (userEmail) {
+    userEmail.textContent =
+      localStorage.getItem('userEmail') || 'testemail@gmail.com';
+  }
 });
