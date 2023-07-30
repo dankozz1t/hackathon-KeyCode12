@@ -2,7 +2,12 @@ import Chart from 'chart.js/auto';
 import { vacanciesAPI } from './vacanciesAPI';
 import { datepicker } from './datePicker';
 import { datepickerMonth } from './datePicker';
+import { datepickerYear } from './datePicker';
 import { vacancies as allData } from '../plug-data/vacancies-data';
+const dateSelectEl = document.getElementById('dateSelect');
+const dashboardChartEl = document.querySelector('.dashboard-chart');
+const monthElem = document?.getElementById('month');
+const yearElem = document?.getElementById('year');
 
 const charColor = getComputedStyle(document.documentElement).getPropertyValue(
   '--french-sky-blue'
@@ -10,8 +15,6 @@ const charColor = getComputedStyle(document.documentElement).getPropertyValue(
 const borderCharColor = getComputedStyle(
   document.documentElement
 ).getPropertyValue('--brandeis-blue');
-
-const currentYear = 2023;
 
 const getData = async () => {
   try {
@@ -22,8 +25,22 @@ const getData = async () => {
   }
 };
 
+dateSelectEl.addEventListener('change', function () {
+  if (dateSelectEl.value === 'year') {
+    monthElem.style.display = 'none';
+    yearElem.style.display = 'block';
+  }
+  if (dateSelectEl.value === 'month') {
+    yearElem.style.display = 'none';
+    monthElem.style.display = 'block';
+  }
+});
+
 const filteredYearVacancy = (data, year) => {
-  return data.filter(el => el.date.getFullYear() === year);
+  return data.filter(el => {
+    const d = new Date(el.date);
+    return d.getFullYear() === year;
+  });
 };
 
 const filteredMonthVacancy = (data, month) => {
@@ -108,7 +125,7 @@ const parseDay = data => {
 
 const btnDayEl = document.getElementById('foo');
 const btnMonthEl = document.getElementById('month');
-const btnYearEl = document.getElementById('button--year');
+const btnYearEl = document.getElementById('year');
 const canvasEl = document.getElementById('chart');
 
 btnDayEl.addEventListener('click', () => {
@@ -118,12 +135,15 @@ btnDayEl.addEventListener('click', () => {
 
 btnMonthEl?.addEventListener('click', () => {
   const currentDate = datepickerMonth.getDate();
-
   const date = currentDate.getMonth() + 1;
   buttonClick('month', date);
 });
 
-// btnYearEl.addEventListener('click', () => buttonClick('year'));
+btnYearEl.addEventListener('click', () => {
+  const currentDate = datepickerYear.getDate();
+  const date = currentDate.getFullYear();
+  buttonClick('year', date);
+});
 
 const buttonClick = (period, currentDate) => {
   switch (period) {
@@ -136,7 +156,7 @@ const buttonClick = (period, currentDate) => {
       break;
 
     case 'year':
-      chartYear(filteredYearVacancy(allData, 2023));
+      chartYear(filteredYearVacancy(allData, currentDate));
       break;
 
     default:
@@ -147,7 +167,8 @@ const buttonClick = (period, currentDate) => {
 const chartYear = async function (data) {
   const chartData = {};
   data.forEach(item => {
-    const month = item.date.getMonth() + 1;
+    const d = new Date(item.date);
+    const month = d.getMonth() + 1;
     const parsedMonth = parseMonth(month);
 
     if (chartData[parsedMonth]) {
@@ -169,6 +190,13 @@ const chartYear = async function (data) {
       borderWidth: 2,
       borderRadius: 20,
       borderColor: borderCharColor,
+      scales: {
+        y: {
+          ticks: {
+            stepSize: 1,
+          },
+        },
+      },
     },
     data: {
       labels: Object.keys(chartData),
@@ -176,7 +204,7 @@ const chartYear = async function (data) {
         {
           label: 'Number of vacancies per year',
           data: Object.values(chartData),
-          backgroundColor: '#ff6384',
+          backgroundColor: charColor,
         },
       ],
     },
@@ -208,12 +236,19 @@ const chartDay = async function (data) {
       borderWidth: 2,
       borderRadius: 20,
       borderColor: borderCharColor,
+      scales: {
+        y: {
+          ticks: {
+            stepSize: 1,
+          },
+        },
+      },
     },
     data: {
       labels: Object.keys(chartData),
       datasets: [
         {
-          label: 'Number of vacancies per year',
+          label: 'Number of vacancies in current period',
           data: Object.values(chartData),
           backgroundColor: charColor,
         },
@@ -246,12 +281,19 @@ const chartMonth = async function (data) {
       borderWidth: 2,
       borderRadius: 20,
       borderColor: borderCharColor,
+      scales: {
+        y: {
+          ticks: {
+            stepSize: 1,
+          },
+        },
+      },
     },
     data: {
       labels: Object.keys(chartData),
       datasets: [
         {
-          label: 'Number of vacancies in current day',
+          label: 'Number of vacancies in current month',
           data: Object.values(chartData),
           backgroundColor: charColor,
         },

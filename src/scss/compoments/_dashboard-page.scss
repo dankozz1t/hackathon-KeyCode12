@@ -6,7 +6,7 @@
   display: grid;
   grid-row-gap: 30px;
   grid-column-gap: 30px;
-  grid-template-columns: auto 1fr 1fr;
+  grid-template-columns: minmax(300px, auto) minmax(300px, auto) 1fr;
   grid-template-rows: repeat(3, auto);
 }
 
@@ -15,6 +15,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  margin-bottom: 8px;
 }
 
 .dashboard-items {
@@ -22,6 +23,12 @@
   padding: 20px;
   border-radius: 10px;
   min-height: 280px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  transition: box-shadow var(--transition-time) var(--transition-cubic);
+
+  &:hover {
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+  }
 
   &:nth-child(4) {
     grid-column: span 2;
@@ -45,4 +52,53 @@
 
 .datepicker-picker {
   margin: 0 auto;
+}
+.datepicker-header {
+  margin-bottom: 16px;
+}
+
+.items-month .datepicker-header {
+  margin-bottom: 10px;
+}
+
+.datepicker-controls .view-switch {
+  font-family: var(--main-font);
+  font-size: 20px;
+}
+
+.days,
+.days-of-week .dow {
+  font-size: 20px;
+}
+.days-of-week .dow {
+  height: 2.8rem;
+}
+
+.datepicker-view .days {
+  column-gap: 30px;
+}
+
+.datepicker-cell:not(.day) {
+  height: 3rem;
+}
+
+.datepicker-cell.dey {
+  height: 2.5rem;
+}
+
+.dashboard-statistic-item {
+  font-size: 20px;
+}
+
+.datepicker-cell .day .next {
+  color: transparent;
+}
+
+.dashboard-statistic-thumb {
+  display: flex;
+  column-gap: 100px;
+}
+
+.dashboard-chart__year {
+  display: none;
 }
