@@ -14,26 +14,56 @@
       <section class="dashboard-section">
         <div class="container dashboard-container">
           <div class="dashboard-items" id="foo"></div>
-          <div class="dashboard-items">
+          <div class="dashboard-items items-month">
             <h2 class="dashboard-title">Choose period:</h2>
-            <select id="dateSelect">
+            <select id="dateSelect" class="dachbord-select input">
               <option value="month" selected>Month</option>
               <option value="year">Year</option>
             </select>
             <h2 class="dashboard-title">Choose date:</h2>
-            <div id="month"></div>
+            <div
+              class="dashboard-chart dashboard-chart__month"
+              id="month"
+            ></div>
+            <div class="dashboard-chart dashboard-chart__year" id="year"></div>
           </div>
-          <div class="dashboard-items">Text-dashbord</div>
           <div class="dashboard-items">
-            <canvas id="chart">Choose date</canvas>
+            <h2 class="dashboard-title">Statistic</h2>
+            <div class="dashboard-statistic-thumb">
+              <ul class="dashboard-statistic-item">
+                <li>
+                  All vacancy:
+                  <span id="all-vacancy">0</span>
+                </li>
+                <li>
+                  Sent:
+                  <span id="all-sent">0</span>
+                </li>
+                <li>
+                  Rejection:
+                  <span id="all-reject">0</span>
+                </li>
+                <li>
+                  Offer:
+                  <span id="all-offer">0</span>
+                </li>
+
+                <li>
+                  Pending:
+                  <span id="all-pending">0</span>
+                </li>
+              </ul>
+              <p class="dashboard-statistic-item">
+                Total time:
+                <span id="total-time">0</span>day
+              </p>
+            </div>
+
+            <div><canvas id="circle"></canvas></div>
           </div>
-          <div class="dashboard-items">circle</div>
-
-          <!-- <load ="components/dashboard-nav-list.html" />
-
-          <div>
-            <div style="width: 800px"><canvas id="chart"></canvas></div>
-          </div> -->
+          <div class="dashboard-items">
+            <canvas id="chart" class="canvas">Choose date</canvas>
+          </div>
         </div>
       </section>
     </main>
@@ -41,5 +71,6 @@
     <script type="module" src="/main.js"></script>
     <script type="module" src="/services/chart.js"></script>
     <script type="module" src="/services/datePicker.js"></script>
+    <script type="module" src="/services/statistic.js"></script>
   </body>
 </html>

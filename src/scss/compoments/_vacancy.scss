@@ -83,17 +83,17 @@
   font-weight: 400;
 }
 
-.vacancy__edit{
-    display: flex;
-    justify-content: flex-end;
+.vacancy__edit {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.vacancy__button{
-    padding: 10px;
-    
-    border: none;
-    border-radius: 7px;
+.vacancy__button {
+  padding: 10px;
 
-    color: var(--main-text-cl);
-    background-color: var(--french-sky-blue);
+  border: none;
+  border-radius: 7px;
+
+  color: var(--main-text-cl);
+  background-color: var(--french-sky-blue);
 }
